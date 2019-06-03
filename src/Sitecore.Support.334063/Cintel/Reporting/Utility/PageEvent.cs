@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using Sitecore.DependencyInjection;
 using Sitecore.Marketing.Definitions;
 using Sitecore.Marketing.Definitions.Goals;
@@ -11,7 +12,7 @@ namespace Sitecore.Support.Cintel.Reporting.Utility
         {
             return !(id == Guid.Empty)
                 ? ((GoalDefinitionManager) ServiceLocator.ServiceProvider.GetDefinitionManagerFactory()
-                    .GetDefinitionManager<IGoalDefinition>()).Get(id, Context.Language.CultureInfo)
+                    .GetDefinitionManager<IGoalDefinition>()).Get(id, CultureInfo.InvariantCulture)
                 : null;
         }
     }
